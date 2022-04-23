@@ -3,6 +3,11 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 
+// Obtain token and secret from .env if not production
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 // create LINE SDK config from env variables
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
