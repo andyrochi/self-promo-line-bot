@@ -2,6 +2,7 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
+const command = require('./controllers/commandHandler');
 
 // Obtain token and secret from .env if not production
 if (process.env.NODE_ENV !== 'production') {
@@ -40,8 +41,8 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  // create a echoing text message
-  const echo = { type: 'text', text: event.message.text };
+  // handle text message with commandHandler
+  const echo = command.commandHandler(event.message);
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
