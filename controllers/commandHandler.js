@@ -1,17 +1,18 @@
+const data = require('../data/data.json');
 
 function commandHandler(eventMessage) {
     let response = defaultMessage();
     if (eventMessage.type === 'text') {
-        response = eventMessage.text;
+        const command = eventMessage.text;
+        if (command in data) {
+            response = data[command];
+        }
     }
-    return {
-        type: 'text',
-        text: response
-    };
+    return response;
 }
 
 function defaultMessage() {
-    return 'Hello!';
+    return data['home'];
 }
 
 exports.commandHandler = commandHandler;
