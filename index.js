@@ -42,7 +42,7 @@ function handleEvent(event) {
   }
 
   // handle text message with commandHandler
-  const echo = command.commandHandler(event.message);
+  const echo = command.commandHandler(event.source, event.message);
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
