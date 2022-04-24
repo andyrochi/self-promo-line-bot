@@ -1,5 +1,5 @@
 {
-    "back":"back",
+    "return":"back",
     "home":{
         "type":"flex",
         "altText":"home",
@@ -116,7 +116,7 @@
                                 "action":{
                                     "type":"message",
                                     "label":"Return to previous page",
-                                    "text":"back"
+                                    "text":"return"
                                 }
                             }
                         ]
